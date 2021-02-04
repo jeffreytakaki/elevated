@@ -10,10 +10,19 @@
  *
  */
 
-add_action("admin_menu", "addMenu");
+
+function elevated_init() {
+    wp_register_style('elevated', plugins_url('admin/css/style.css',__FILE__ ));
+    wp_enqueue_style('elevated');
+    // wp_register_script( 'your_namespace', plugins_url('your_script.js',__FILE__ ));
+    // wp_enqueue_script('your_namespace');
+}
+
+add_action( 'admin_init','elevated_init');
 
 function addMenu() {
     add_menu_page('Elevated', 'Elevated', 4, "elevated", "elevatedMain");
+
     add_submenu_page(
         "elevated", 
         "Homepage",
@@ -39,16 +48,24 @@ function addMenu() {
     //     callable $function = '', 
     //     int $position = null )
 }
+add_action("admin_menu", "addMenu");
 
-function elevatedConfig() {
-    // add_action();
-    echo "homepageConfig";
+function elevatedMain() { ?>
+    <h1>Global Configurations</h1>
+
+    <div class="form-container">
+        <label for="hero-image">Brand Color:</label>
+        <input type="text" name="brand-color" value="<?php echo get_option( 'brand-color' ); ?>"" />
+    </div>
+
+
+    <?php
 }
 
 
 
 function callHomepageSubMenu(){ ?>
-    <h1>WordPress Extra Post Info</h1>
+    <h1>Homepage Configurations</h1>
     <!-- <form method="post" action="<?php echo esc_url( add_query_arg('tab', $active_tab, admin_url( 'options.php' )) ); ?>"> -->
     <form method="post" action="options.php">
     <?php settings_fields( 'elevated_homepage' ); ?>
@@ -106,13 +123,17 @@ function callProductseSubMenu() {
      
     // registers all settings
 
-     register_setting('elevated_homepage', 'hero-image');
-     register_setting('elevated_homepage', 'column-1-text');
-     register_setting('elevated_homepage', 'column-1-image');
-     register_setting('elevated_homepage', 'column-2-text');
-     register_setting('elevated_homepage', 'column-2-image');
-     register_setting('elevated_homepage', 'column-3-text');
-     register_setting('elevated_homepage', 'column-3-image');
+    register_setting('elevated_global', 'brand-color');
+
+    register_setting('elevated_homepage', 'hero-image');
+    register_setting('elevated_homepage', 'column-1-text');
+    register_setting('elevated_homepage', 'column-1-image');
+    register_setting('elevated_homepage', 'column-2-text');
+    register_setting('elevated_homepage', 'column-2-image');
+    register_setting('elevated_homepage', 'column-3-text');
+    register_setting('elevated_homepage', 'column-3-image');
+
+     
 
 
  }
