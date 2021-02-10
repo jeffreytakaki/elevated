@@ -1,0 +1,237 @@
+/* 
+Theme Name: Twenty Twenty One Child 
+Theme URL: localhost
+Description: Twenty Twenty One Child 
+Theme Author: Elevated Global Supply
+Template: twentytwentyone 
+Version: 1.0.0 
+*/
+
+
+/*  START OF GLOBAL STYLING */
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+.site-header,
+.site-main,
+.widget-area,
+.site-footer {
+	padding-top: 0 !important;
+	padding-bottom: var(--global--spacing-vertical);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* END OF GLOBAL STYLING */
+
+
+/* START HOME PAGE STYLING */
+
+.overlay-nav {
+	position: absolute;
+	height: 55px;
+    width: 100%;
+	top: 0;
+	left: 0;
+    background-color: green;
+}
+span#hero-overlay-target {
+    position: absolute;   
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    z-index: 10000;
+    cursor: pointer;
+    -webkit-transition: background-color 0.25s linear;
+    -ms-transition: background-color 0.25s linear;
+    transition: background-color 0.25s linear;
+}
+
+@media (min-width: 800px) {
+    .overlay-nav {
+        height: 100%;
+        width: 50px;
+        padding-bottom: 25px;
+        display: flex;
+        align-items: flex-end;
+    }
+    span#hero-overlay-target {
+        width: 100%;
+        height: 50px;
+        
+    }
+}
+
+#hero-overlay {
+	background-color: #2274A5;
+	height: 100vh;
+	position: relative;
+	display: flex;
+    /*justify-content: space-between;*/
+    margin-top: -50px;
+}
+@media (min-width: 800px) {
+    #hero-overlay {
+        height: 800px;
+    }
+}
+
+.overlay {
+	position: absolute;
+	background-color: #e7eb90;
+	height: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: 0.25s all;
+    visibility: hidden;
+    left: 0;
+}
+@media (min-width: 800px) {
+    .overlay {
+        height: 100%;
+        width: 0;
+    }
+}
+
+
+.overlay  h2 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.overlay img {
+    height: 50px;
+    width: 50px;
+}
+
+#hero-overlay.active  .overlay {
+	/*visibility: visible;*/
+    height: 32.5%;
+    width: 100%;
+}
+@media (min-width: 800px) {
+    #hero-overlay.active  .overlay {
+        height: 100%;
+        width: 32.5%;
+    }
+}
+
+#hero-overlay.active span#hero-overlay-target {
+    background: transparent;
+}
+
+
+/* PILLBOXES */
+
+#pillbox-mobile {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#pillbox-mobile .nav {
+    display: flex !important;
+}
+
+.pillbox-mobile-tab-color {
+    width: 40px;
+    height: 40px;
+}
+
+div#nav-tabContent {
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+div#nav-tabContent img {
+    width: 90%;
+    height: auto;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#pillbox {
+    display: none; 
+}
+
+@media (min-width: 1350px) {
+    #pillbox-mobile {
+        display: none;
+    }
+
+    #pillbox {
+        display: flex;
+        width: 100%;
+        max-width: 1400px;
+        justify-content: space-evenly;
+        margin: 0px auto;
+        /* background-color: #ffee93; */
+    }
+    #pillbox .box {
+        position: relative;
+        width: 160px;
+        height: 160px;
+        border: 1px solid inherit;
+        border-radius: 80px;
+        transition: all 0.3s ease 0s;
+        z-index: 1;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    #pillbox .box img {
+        height: 100%;
+        width: auto;
+        position: absolute;
+        right: 0;
+        visibility: hidden;
+    }
+    
+    #pillbox .box .pillbox-name {
+        position: absolute;
+        bottom: 41%;
+        left: 0px;
+        width: 160px;
+        text-align: center;
+        font-size: 16px;
+        line-height: 22px;
+        color: #FFF;
+    }
+
+    .closeButton {
+        position: absolute;
+        right: 21px;
+        z-index: 10;
+        visibility: hidden;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 50px;
+    }
+
+    #pillbox .box.active {
+        width: 500px;
+    }
+    #pillbox .box.active img {
+        visibility: visible;
+    }
+    #pillbox .box.active  .closeButton{
+        visibility: visible;
+    }
+}
+
+/* END OF PILLBOXES */
+
+
+/* END HOME PAGE STYLING */
