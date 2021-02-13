@@ -1,4 +1,16 @@
 
+<style>
+    #hero-overlay {
+        background-image: url(<?php echo $args['homepage_hero_mobile'] ?>);
+    }
+
+    @media (min-width: 800px) {
+        #hero-overlay {
+            background-image: url(<?php echo $args['homepage_hero_desktop'] ?>);
+        }   
+    }
+</style>
+
 <div id="hero-overlay">
     <div class="overlay-nav">
         <span id="hero-overlay-target">X</span>

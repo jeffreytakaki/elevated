@@ -52,12 +52,27 @@ add_action("admin_menu", "addMenu");
 
 function elevatedMain() { ?>
     <h1>Global Configurations</h1>
+    
+    <form method="post" action="options.php">
+    <?php settings_fields( 'elevated_global' ); ?>
+    <?php do_settings_sections( 'elevated_global' ); ?>
+        <style>
+
+            .form-container {
+                display: flex;
+            }
+        </style>
 
     <div class="form-container">
         <label for="hero-image">Brand Color:</label>
         <input type="text" name="brand-color" value="<?php echo get_option( 'brand-color' ); ?>"" />
+
+        <label for="page-color">Page Color:</label>
+        <input type="text" name="page-color" value="<?php echo get_option( 'page-color' ); ?>"" />
     </div>
 
+    <?php submit_button(); ?>
+    </form>
 
     <?php
 }
@@ -124,6 +139,7 @@ function callProductseSubMenu() {
     // registers all settings
 
     register_setting('elevated_global', 'brand-color');
+    register_setting('elevated_global', 'page-color');
 
     register_setting('elevated_homepage', 'hero-image');
     register_setting('elevated_homepage', 'column-1-text');
@@ -132,6 +148,7 @@ function callProductseSubMenu() {
     register_setting('elevated_homepage', 'column-2-image');
     register_setting('elevated_homepage', 'column-3-text');
     register_setting('elevated_homepage', 'column-3-image');
+
 
      
 

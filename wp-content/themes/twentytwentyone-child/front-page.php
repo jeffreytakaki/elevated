@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <?php wp_head(); ?>
-<body>
+<body style="background-color: <?php echo get_option('page-color') ?>">
     <?php get_header();?>
     <?php         
         $fields_all = get_fields($post->ID);
@@ -15,11 +15,6 @@
     ?>
  
     <?php  get_template_part('template-parts/pillboxes', null, $fields_all); ?>
-
-    <?php 
-    // $elevated_options = get_option('hero-image');
-    //var_dump($elevated_options); 
-    ?>
 
     <?php the_content(); ?>
 

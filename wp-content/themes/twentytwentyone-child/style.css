@@ -12,7 +12,8 @@ Version: 1.0.0
 
 html, body {
 	margin: 0;
-	padding: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
 }
 
 .site-header,
@@ -36,7 +37,7 @@ html, body {
     width: 100%;
 	top: 0;
 	left: 0;
-    background-color: green;
+    background-color: #d3d3d3;
 }
 span#hero-overlay-target {
     position: absolute;   
@@ -72,8 +73,9 @@ span#hero-overlay-target {
 	height: 100vh;
 	position: relative;
 	display: flex;
-    /*justify-content: space-between;*/
-    margin-top: -50px;
+    margin-top: -55px;
+    background-size: cover;
+    background-position: center;
 }
 @media (min-width: 800px) {
     #hero-overlay {
@@ -83,12 +85,12 @@ span#hero-overlay-target {
 
 .overlay {
 	position: absolute;
-	background-color: #e7eb90;
+	background-color: #d3d3d3;
 	height: 0;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
     transition: 0.25s all;
     visibility: hidden;
@@ -98,6 +100,8 @@ span#hero-overlay-target {
     .overlay {
         height: 100%;
         width: 0;
+        justify-content: flex-end;
+        padding-bottom: 37vh;
     }
 }
 
@@ -108,8 +112,8 @@ span#hero-overlay-target {
 }
 
 .overlay img {
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
 }
 
 #hero-overlay.active  .overlay {
@@ -121,6 +125,10 @@ span#hero-overlay-target {
     #hero-overlay.active  .overlay {
         height: 100%;
         width: 32.5%;
+    }
+    .overlay img {
+
+        margin-top: 50px;
     }
 }
 
